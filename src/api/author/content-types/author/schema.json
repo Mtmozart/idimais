@@ -22,6 +22,12 @@
       "type": "uid",
       "targetField": "name",
       "required": true
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::post.post",
+      "mappedBy": "author"
     }
   }
 }

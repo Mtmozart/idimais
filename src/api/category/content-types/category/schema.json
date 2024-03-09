@@ -23,6 +23,12 @@
       "required": true,
       "minLength": 1,
       "maxLength": 100
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "categories"
     }
   }
 }

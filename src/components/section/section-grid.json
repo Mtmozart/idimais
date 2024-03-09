@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_section_section_grids",
+  "info": {
+    "displayName": "section_grid",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "text_grid": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.text-grid"
+    }
+  }
+}
