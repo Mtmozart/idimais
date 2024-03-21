@@ -954,6 +954,42 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
 }
 
+export interface ApiQuestionCategoryQuestionCategory
+  extends Schema.CollectionType {
+  collectionName: 'question_categories';
+  info: {
+    singularName: 'question-category';
+    pluralName: 'question-categories';
+    displayName: 'question_category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 250;
+      }>;
+    slug: Attribute.UID<'api::question-category.question-category', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::question-category.question-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::question-category.question-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSettingSetting extends Schema.SingleType {
   collectionName: 'settings';
   info: {
@@ -1046,6 +1082,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::page.page': ApiPagePage;
       'api::post.post': ApiPostPost;
+      'api::question-category.question-category': ApiQuestionCategoryQuestionCategory;
       'api::setting.setting': ApiSettingSetting;
       'api::tag.tag': ApiTagTag;
     }
